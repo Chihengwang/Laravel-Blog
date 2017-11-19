@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 
 // Route::get('/test', 'IndexController@index');
-Route::any('admin/index', 'Admin\IndexController@index');
-Route::any('admin/info', 'Admin\IndexController@info');
+// Route::any('admin/index', 'Admin\IndexController@index');
+// Route::any('admin/info', 'Admin\IndexController@info');
 
 
 Route::any('admin/login', 'Admin\LoginController@login');
@@ -31,8 +31,10 @@ Route::get('admin/code','Admin\LoginController@code');
 
 Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admin'], function() {
     //
-    Route::any('index', 'IndexController@index');
-    Route::any('info', 'IndexController@info');
-    Route::any('quit', 'LoginController@quit');
+    Route::get('index', 'IndexController@index');
+    Route::get('info', 'IndexController@info');
+    Route::get('quit', 'LoginController@quit');
+    Route::any('pass', 'IndexController@pass');
+    
 });
 
