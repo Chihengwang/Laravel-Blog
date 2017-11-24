@@ -13,12 +13,21 @@
         <h3>修改密码</h3>
             @if(count($errors)>0)
             <div class="mark">
-                @foreach($errors->all() as $error)
-                    <p>{{$error}}</p>
-                @endforeach
+                @if(is_object($errors))
+                    @foreach($errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                @else
+                    <p>{{$errors}}</p>
+                @endif
+                
             </div>
             @endif
-            
+            @isset($yes)
+                    <div class="mark">
+                        <p>{{$yes}}</p>
+                    </div>
+            @endisset    
     </div>
 </div>
 <!--结果集标题与导航组件 结束-->

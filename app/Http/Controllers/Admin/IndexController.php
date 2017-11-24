@@ -40,7 +40,8 @@ class IndexController extends Controller
                 if($input['password_o']==$_password){
                     $user->user_pass= Crypt::encrypt($input['password']);
                     $user->update();
-                    return \redirect('admin/info');
+                    // return back()->with('yes','修改密碼成功');
+                    return view('admin.pass')->with('yes','修改密碼成功');
                 }
                 else{
                     return back()->with('errors','原密碼錯誤');
