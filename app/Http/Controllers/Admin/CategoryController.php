@@ -85,7 +85,7 @@ class CategoryController extends Controller
         // dd($field); model
         return view('admin.category.edit',compact(['field','data']));
     }
-    
+
     //put:admin/category/{category}  更新分類
     public function update($cate_id){
         $input=Input::except('_token','_method');
@@ -99,14 +99,28 @@ class CategoryController extends Controller
             return back()->with('errors','分類更新失敗');
         }
     }
+    //Delete:admin/category/{category} 刪除單個分類 
+    public function destroy($cate_id){
+        $re=Category::where('cate_id',$cate_id)->delete();
+        Category::where('cate_pid',$cate_id)->update(['cate_pid'=>0]);
+        if($re){
+            $data=[
+                'status'=>0,
+                'msg'=>'刪除成功'
+            ];
+        }else{
+            $data=[
+                'status'=>1,
+                'msg'=>'刪除失敗!!'
+            ];
+        }
+        return $data;//response
+    }
     //post:admin/category/{category} 顯示單個分類信息 
     public function show(){
         
     }
 
-    //Delete:admin/category/{category} 刪除單個分類 
-    public function destory(){
-        
-    }
+
 
 }
