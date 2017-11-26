@@ -11,6 +11,7 @@ class Category extends Model
     protected $table='category';
     protected $primaryKey = 'cate_id';
     public $timestamps = false;
+    protected $guarded = [];
 
     public function Tree(){
         // $categorys= Category::all();
