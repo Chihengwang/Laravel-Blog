@@ -43,4 +43,5 @@ class LoginController extends Controller
         \session(['user'=>null]);
         return \redirect("admin/login");
     }
+
 }

@@ -42,7 +42,7 @@ class CategoryController extends Controller
     public function store(){
         // $input=Input::all();
         $input=Input::except('_token');
-        // dd($input);
+        // dd($input['cate_name']);
         $rules=[
             'cate_name'=> 'required',
         ];
@@ -88,8 +88,9 @@ class CategoryController extends Controller
 
     //put:admin/category/{category}  更新分類
     public function update($cate_id){
+        // dd($input=Input::all());
         $input=Input::except('_token','_method');
-        // print_r($input);//array
+        // dd($input);//array
         //update method need to put in the array and column name needs to be the same!
         $re=Category::where('cate_id',$cate_id)->update($input);
         if($re){

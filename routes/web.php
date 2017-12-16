@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 
+
 // Route::get('/test', 'IndexController@index');
 // Route::any('admin/index', 'Admin\IndexController@index');
 // Route::any('admin/info', 'Admin\IndexController@info');
@@ -26,6 +27,7 @@ Route::get('/', function () {
 
 Route::any('admin/login', 'Admin\LoginController@login');
 Route::get('admin/code','Admin\LoginController@code');
+
 
 
 
@@ -37,5 +39,7 @@ Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admi
     Route::any('pass', 'IndexController@pass');
     Route::post('cate/changeorder', 'CategoryController@changeOrder');
     Route::resource('category', 'CategoryController');
+    Route::resource('article', 'ArticleController');
+    Route::any('upload', 'FileController@upload');
 });
 
