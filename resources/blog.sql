@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2017-12-05 15:43:17
+-- 產生時間： 2017-12-16 10:44:22
 -- 伺服器版本: 10.1.26-MariaDB
 -- PHP 版本： 7.1.9
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `blog`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `blog_article`
+--
+
+CREATE TABLE `blog_article` (
+  `art_id` int(11) UNSIGNED NOT NULL,
+  `art_title` varchar(100) DEFAULT NULL,
+  `art_tag` varchar(100) DEFAULT NULL,
+  `art_description` varchar(255) DEFAULT NULL,
+  `art_thumb` varchar(255) DEFAULT NULL,
+  `art_content` text,
+  `art_time` int(11) NOT NULL DEFAULT '0' COMMENT '發布時間',
+  `art_editor` varchar(50) DEFAULT NULL,
+  `art_view` int(11) NOT NULL DEFAULT '0',
+  `cate_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章列表';
+
+--
+-- 資料表的匯出資料 `blog_article`
+--
+
+INSERT INTO `blog_article` (`art_id`, `art_title`, `art_tag`, `art_description`, `art_thumb`, `art_content`, `art_time`, `art_editor`, `art_view`, `cate_id`) VALUES
+(2, '上海吃屌', '操你媽', '拉機平台', 'uploads/20171216090640932.jpg', '<p>幹你娘親，<span style=\"color: rgb(255, 0, 0);\">垃圾大陸人</span></p>', 1513415243, '王啟恆', 0, 1),
+(3, '垃圾實習', '垃圾實習', '垃圾實習', 'uploads/20171216091515176.jpg', '<p>垃圾實習</p><p>垃圾實習</p>', 1513415721, '王啟恆', 0, 13),
+(4, '垃圾實習', '垃圾實習', '垃圾實習', 'uploads/20171216091515176.jpg', '<p>垃圾實習</p><p>垃圾實習垃圾實習</p>', 1513415721, '王啟恆', 0, 13),
+(5, '明星都去死一死吧', '明星都去死一死吧', '明星都去死一死吧', 'uploads/20171216091616394.jpg', '<p>明星都去死一死吧明星都去死一死吧明星都去死一死吧</p><p>明星都去死一死吧明星都去死一死吧明星都去死一死吧</p><p>明星都去死一死吧明星都去死一死吧明星都去死一死吧</p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><span style=\"font-size: 20px;\">明星都去死一死吧明星都去死一死吧明星都去死一死吧！！</span></p>', 1513415804, '王啟恆', 0, 14),
+(6, '體育是三小 幹你老師好不好', '明星都去死一死吧', '明星都去死一死吧', 'uploads/20171216091719756.png', '<p>體育是三小 幹你老師好不好</p><p>體育是三小 幹你老師好不好</p><p>體育是三小 幹你老師好不好</p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p>體育是三小 幹你老師好不好</p><p style=\"text-align: center;\">體育是三小 幹你老師好不好</p><p><br/></p><p><br/></p><p>體育是三小 幹你老師好不好</p>', 1513415857, '王啟恆', 0, 12),
+(7, '運動彩絹 幹你老師', '運動彩絹 幹你老師', '運動彩絹 幹你老師', 'uploads/20171216091821473.png', '<p>運動彩絹 幹你老師運動彩絹 幹你老師運動彩絹 幹你老師運動彩絹 幹你老師運動彩絹 幹你老師運動彩絹 幹你老師</p><p><br/></p><p><br/></p><p>運動彩絹 幹你老師</p><p>運動彩絹 幹你老師</p><p>運動彩絹 幹你老師</p>', 1513415904, '王啟恆', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -79,6 +110,12 @@ INSERT INTO `blog_user` (`user_id`, `user_name`, `user_pass`) VALUES
 --
 
 --
+-- 資料表索引 `blog_article`
+--
+ALTER TABLE `blog_article`
+  ADD PRIMARY KEY (`art_id`);
+
+--
 -- 資料表索引 `blog_category`
 --
 ALTER TABLE `blog_category`
@@ -93,6 +130,12 @@ ALTER TABLE `blog_user`
 --
 -- 在匯出的資料表使用 AUTO_INCREMENT
 --
+
+--
+-- 使用資料表 AUTO_INCREMENT `blog_article`
+--
+ALTER TABLE `blog_article`
+  MODIFY `art_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- 使用資料表 AUTO_INCREMENT `blog_category`
