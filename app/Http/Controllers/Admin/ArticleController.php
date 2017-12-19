@@ -14,7 +14,10 @@ class ArticleController extends Controller
     //
     //get:admin/article 顯示全部分類
     public function index(){
-        return view('admin.article.index');
+        $data=Article::orderBy('art_id','desc')->paginate(5);
+        // dd($data);
+
+        return view('admin.article.index',compact('data'));
     }
 //================================================
 //到添加文章的頁面   route admin/article/create
@@ -59,4 +62,44 @@ class ArticleController extends Controller
             //返回錯誤的訊息。用$errors取得
         }
     }
+    //get:admin/article/{article}/edit 編輯分類 
+    public function edit($art_id){
+        // echo $art_id;
+        $data=(new Category)->Tree();
+        $field=Article::find($art_id);
+        $alldata=compact('data','field');
+        // dd($alldata);
+        return view('admin.article.edit',compact('data','field'));
+    }
+    //put:admin/article/{article}  更新分類
+    public function update($art_id){
+        $input=Input::except('_token','_method');
+        // dd($input);
+        $re=Article::where('art_id',$art_id)->update($input);
+        // dd($re);
+        if($re){
+            return redirect('admin/article');
+        }
+        else{
+            return back()->with('errors','文章更新失敗');
+        }
+    }
+    //Delete:admin/article/{article} 刪除單個分類 
+    public function destroy($art_id){
+        $re=Article::where('art_id',$art_id)->delete();
+
+        if($re){
+            $data=[
+                'status'=>0,
+                'msg'=>'刪除成功'
+            ];
+        }else{
+            $data=[
+                'status'=>1,
+                'msg'=>'刪除失敗!!'
+            ];
+        }
+        return $data;//response
+    }
+
 }

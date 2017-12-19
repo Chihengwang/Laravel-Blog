@@ -38,8 +38,10 @@ Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admi
     Route::get('quit', 'LoginController@quit');
     Route::any('pass', 'IndexController@pass');
     Route::post('cate/changeorder', 'CategoryController@changeOrder');
+    Route::post('links/changeorder', 'LinksController@changeOrder');
     Route::resource('category', 'CategoryController');
     Route::resource('article', 'ArticleController');
+    Route::resource('links', 'LinksController');
     Route::any('upload', 'FileController@upload');
 });
 
