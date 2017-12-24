@@ -30,7 +30,6 @@ Route::get('admin/code','Admin\LoginController@code');
 
 
 
-
 Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admin'], function() {
     //
     Route::get('index', 'IndexController@index');

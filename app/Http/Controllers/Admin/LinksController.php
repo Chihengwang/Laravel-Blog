@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Links;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class LinksController extends Controller
 {
@@ -35,5 +36,47 @@ class LinksController extends Controller
             ]; 
         }
         return $data;
+    }
+
+    //get:admin/links/create/添加links
+    public function create(){
+
+        return view('admin.links.add');
+    }
+    //post:admin/links 提交添加分類 從add.blade.php引入
+    public function store(){
+        // $input=Input::all();
+        $input=Input::except('_token');
+        // dd($input['cate_name']);
+        $rules=[
+            'link_name'=> 'required',
+            'link_url'=>'required',
+        ];
+        //confirmed 用法是為了確定輸入的密碼與確認密碼一樣 記得在pass的板模裡面更改name的名稱為password_confirmation
+        $messages=[
+            'link_name.required'=>'鏈結名稱不得為空',
+            'link_url.required'=>'鏈結連結不得為空',
+            
+        ];
+        //此參數是(name.rules)
+
+        $validator=Validator::make($input, $rules,$messages);
+        //三個參數 第一個 規定其輸入的變數，第二其驗證規則，第三其錯誤訊息自訂
+        if($validator->passes()){
+            // echo 'yes';
+            $re=Links::create($input);
+            // dd($re); 
+            if($re){
+                return redirect('admin/links');
+            }else{
+                return back()->with('errors','資料填寫錯誤');
+            }         
+        }
+        else{
+            // dd($validator->errors()->all());
+            //取得所有錯誤訊息
+            return back()->withErrors($validator);
+            //返回錯誤的訊息。用$errors取得
+        }
     }
 }
