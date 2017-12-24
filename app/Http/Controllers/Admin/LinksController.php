@@ -79,4 +79,42 @@ class LinksController extends Controller
             //返回錯誤的訊息。用$errors取得
         }
     }
+    //get:admin/links/{links}/edit 編輯友情鏈結
+    public function edit($link_id){
+        // dd($link_id);
+        $field=Links::find($link_id);
+        // dd($field);
+        return view('admin.links.edit',compact('field'));
+    }
+
+    //put:admin/links/{links}  更新友情鏈結
+    public function update($link_id){
+        // dd($input=Input::all());
+        $input=Input::except('_token','_method');
+        // dd($input);//array
+        //update method need to put in the array and column name needs to be the same!
+        $re=Links::where('link_id',$link_id)->update($input);
+        if($re){
+            return redirect('admin/links');
+        }
+        else{
+            return back()->with('errors','友情鏈結更新失敗');
+        }
+    }
+    //admin/links/{link}             | links.destroy 
+    public function destroy($link_id){
+        $re=Links::where('link_id',$link_id)->delete();
+        if($re){
+            $data=[
+                'status'=>0,
+                'msg'=>'友情鏈結刪除成功'
+            ];
+        }else{
+            $data=[
+                'status'=>1,
+                'msg'=>'友情鏈結刪除失敗!!'
+            ];
+        }
+        return $data;//response
+    }
 }

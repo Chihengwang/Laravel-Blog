@@ -70,7 +70,7 @@
                             <td>{{$v->link_url}}</td>
                             <td>
                                 <a href="{{url('admin/links/'.$v->link_id.'/edit')}}">修改</a>
-                                <a href="javascript:void(0);" onclick="delCate({{$v->link_id}})">删除</a>
+                                <a href="javascript:void(0);" onclick="delLinks({{$v->link_id}})">删除</a>
                             </td>
                         </tr>
                     @endforeach
@@ -93,15 +93,15 @@
             
         });
     }
-    //刪除類別
+    //刪除友情鏈結
     //询问框
-    function delCate(cate_id){
+    function delLinks(link_id){
         layer.confirm('你確定要刪除嗎？', {
         btn: ['確定','不刪除'] //按钮
         }, function(){
         //layer.msg('的确很重要', {icon: 1});
         //alert(cate_id);
-        $.post("{{url('admin/category')}}/"+cate_id,{'_method':'delete','_token':'{{ csrf_token()}}'},function(data){
+        $.post("{{url('admin/links')}}/"+link_id,{'_method':'delete','_token':'{{ csrf_token()}}'},function(data){
             if(data.status==0){
                 history.go(0);
                 layer.msg(data.msg, {icon: 6});
