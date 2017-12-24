@@ -40,7 +40,10 @@ Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admi
     Route::post('links/changeorder', 'LinksController@changeOrder');
     Route::resource('category', 'CategoryController');
     Route::resource('article', 'ArticleController');
+
     Route::resource('links', 'LinksController');
+    Route::resource('navs', 'NavsController');
+    Route::post('navs/changeorder', 'NavsController@changeOrder');
     Route::any('upload', 'FileController@upload');
 });
 
