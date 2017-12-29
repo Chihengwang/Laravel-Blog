@@ -28,8 +28,6 @@ Route::get('/', function () {
 Route::any('admin/login', 'Admin\LoginController@login');
 Route::get('admin/code','Admin\LoginController@code');
 
-
-
 Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admin'], function() {
     //
     Route::get('index', 'IndexController@index');
@@ -44,6 +42,12 @@ Route::group(['middleware' => 'admin.login','prefix'=>'admin','namespace'=>'Admi
     Route::resource('links', 'LinksController');
     Route::resource('navs', 'NavsController');
     Route::post('navs/changeorder', 'NavsController@changeOrder');
+    // ==============================================================
+    Route::get('config/putfile', 'ConfigController@putFile');
+    Route::post('config/changecontent', 'ConfigController@changeContent');
+    Route::post('config/changeorder', 'ConfigController@changeOrder');
+    Route::resource('config', 'ConfigController');
+    //========================================================================
     Route::any('upload', 'FileController@upload');
 });
 

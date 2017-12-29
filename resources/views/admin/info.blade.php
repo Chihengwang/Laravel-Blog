@@ -4,7 +4,7 @@
 	<!--面包屑导航 开始-->
 	<div class="crumb_warp">
 		<!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-		<i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a>  &raquo; 系統消息
+		<i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首頁</a>  &raquo; 系統消息
 	</div>
 	<!--面包屑导航 结束-->
 	
@@ -34,22 +34,22 @@
                     <label>操作系统</label><span>{{PHP_OS}}</span>
                 </li>
                 <li>
-                    <label>运行环境</label><span>{{$_SERVER['SERVER_SOFTWARE']}}</span>
+                    <label>運行環境</label><span>{{$_SERVER['SERVER_SOFTWARE']}}</span>
                 </li>
                 <li>
-                    <label>PHP运行方式</label><span>apache2handler</span>
+                    <label>PHP運行方式</label><span>apache2handler</span>
                 </li>
                 <li>
-                    <label>静静设计-版本</label><span>v-0.1</span>
+                    <label>版本</label><span>v-0.1</span>
                 </li>
                 <li>
-                    <label>上传附件限制</label><span><?php echo ini_get('upload_max_filesize');?></span>
+                    <label>上傳限制</label><span><?php echo ini_get('upload_max_filesize');?></span>
                 </li>
                 <li>
-                    <label>北京时间</label><span><?php echo date('y-m-d');?></span>
+                    <label>台灣時間</label><span><?php echo date('y-m-d');?></span>
                 </li>
                 <li>
-                    <label>服务器域名/IP</label><span>{{$_SERVER['SERVER_NAME']}}{{$_SERVER['SERVER_ADDR']}}</span>
+                    <label>伺服器名稱</label><span>{{$_SERVER['SERVER_NAME']}}{{$_SERVER['SERVER_ADDR']}}</span>
                 </li>
                 <li>
                     <label>Host</label><span>{{$_SERVER['SERVER_ADDR']}}</span>
@@ -66,10 +66,10 @@
         <div class="result_content">
             <ul>
                 <li>
-                    <label>官方交流网站：</label><span><a href="#">http://bbs.houdunwang.com</a></span>
+                    <label>學習網站：</label><span><a href="#">http://bbs.houdunwang.com</a></span>
                 </li>
                 <li>
-                    <label>官方交流QQ群：</label><span><a href="#"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png"></a></span>
+                    <label>管理人</label><span><a href="#">王啟恆</a></span>
                 </li>
             </ul>
         </div>

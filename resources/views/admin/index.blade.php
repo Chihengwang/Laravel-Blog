@@ -4,16 +4,16 @@
 		<!--头部 开始-->
 	<div class="top_box">
 		<div class="top_left">
-			<div class="logo">后台管理模板</div>
+			<div class="logo">後臺管理</div>
 			<ul>
-				<li><a href="#" class="active">首页</a></li>
-				<li><a href="#">管理页</a></li>
+				<li><a href="{{url('/')}}" target="_blank" class="active">首頁</a></li>
+				<li><a href="{{url('admin/info')}}" target="main">管理頁面</a></li>
 			</ul>
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：admin</li>
-				<li><a href="{{url('admin/pass')}}" target="main">修改密码</a></li>
+				<li>管理員：admin</li>
+				<li><a href="{{url('admin/pass')}}" target="main">修改密碼</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>
 		</div>
@@ -24,7 +24,7 @@
 	<div class="menu_box">
 		<ul>
             <li>
-            	<h3><i class="fa fa-fw fa-clipboard"></i>常用操作</h3>
+            	<h3><i class="fa fa-fw fa-clipboard"></i>內容管理</h3>
                 <ul class="sub_menu">
                     <li><a href="{{url('admin/category/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分類</a></li>
                     <li><a href="{{url('admin/category/')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>全部分類</a></li>
@@ -37,16 +37,16 @@
                 <ul class="sub_menu" style="display: block;">
 					<li><a href="{{url('admin/links/')}}" target="main"><i class="fa fa-fw fa-cubes"></i>友情鏈結</a></li>
                     <li><a href="{{url('admin/navs/')}}" target="main"><i class="fa fa-fw fa-navicon"></i>自定義導航</a></li>
-                    <li><a href="#" target="main"><i class="fa fa-fw fa-database"></i>尚未開發</a></li>
+                    <li><a href="{{url('admin/config/')}}" target="main"><i class="fa fa-fw fa-cogs"></i>網站配置調整</a></li>
                 </ul>
             </li>
             <li>
-            	<h3><i class="fa fa-fw fa-thumb-tack"></i>工具导航</h3>
+            	<h3><i class="fa fa-fw fa-thumb-tack"></i>工具修繕</h3>
                 <ul class="sub_menu">
-                    <li><a href="http://www.yeahzan.com/fa/facss.html" target="main"><i class="fa fa-fw fa-font"></i>图标调用</a></li>
-                    <li><a href="http://hemin.cn/jq/cheatsheet.html" target="main"><i class="fa fa-fw fa-chain"></i>Jquery手册</a></li>
-                    <li><a href="http://tool.c7sky.com/webcolor/" target="main"><i class="fa fa-fw fa-tachometer"></i>配色板</a></li>
-                    <li><a href="element.html" target="main"><i class="fa fa-fw fa-tags"></i>其他组件</a></li>
+                    <li><a href="http://www.yeahzan.com/fa/facss.html" target="main"><i class="fa fa-fw fa-font"></i>圖片調用</a></li>
+                    <li><a href="http://hemin.cn/jq/cheatsheet.html" target="main"><i class="fa fa-fw fa-chain"></i>Jquery doc</a></li>
+                    <li><a href="http://tool.c7sky.com/webcolor/" target="main"><i class="fa fa-fw fa-tachometer"></i>配色版</a></li>
+                    <li><a href="element.html" target="main"><i class="fa fa-fw fa-tags"></i>其他組件</a></li>
                 </ul>
             </li>
         </ul>
@@ -62,7 +62,7 @@
 
 	<!--底部 开始-->
 	<div class="bottom_box">
-		CopyRight © 2015. Powered By <a href="http://www.houdunwang.com">http://www.houdunwang.com</a>.
+		CopyRight © 2017 Create by <a href="#">ChihengWang</a>.
 	</div>
 	<!--底部 结束-->
 @endsection
