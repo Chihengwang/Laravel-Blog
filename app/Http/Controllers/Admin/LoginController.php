@@ -27,7 +27,7 @@ class LoginController extends Controller
             //Save This as session
             \session(['user'=>$user]);
             // dd(session('user'));
-            return \redirect("admin/index");
+            return \redirect("admin");
         }else{
             
             // var_dump($user);
